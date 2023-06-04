@@ -1,0 +1,34 @@
+[
+  {
+    "_id": 1,
+    "Pregunta": "SON HABILES:",
+    "RespuestaA": "A) TODOS LOS DIAS DEL AÑO.",
+    "RespuestaB": "B) TODOS LOS DIAS DEL AÑO SALVO SABADOS, DOMINGOS, FERIADOS Y NO LABORALES, DECLARADOS POR EL PODER EJECUTIVO O POR ACORDADA DE LA SUPREMA CORTE.",
+    "RespuestaC": "C) TODOS LOS DIAS IMPARES.",
+    "Correcta": "B"
+  },
+  {
+    "_id": 2,
+    "Pregunta": "SON HORAS HABILES.",
+    "RespuestaA": "A) LAS QUE MEDIAN ENTRE LAS 8 Y LAS 14 HORAS.",
+    "RespuestaB": "B) LAS QUE MEDIAN ENTRE LAS 7 Y LAS 21 HORAS.",
+    "RespuestaC": "C) LAS QUE MEDIAN ENTRE LAS 15 Y LAS 24 HORAS.",
+    "Correcta": "B"
+  },
+  {
+    "_id": 3,
+    "Pregunta": "LOS ESCRITOS DEBEN CONTENER:",
+    "RespuestaA": "A) FIRMA DEL LITIGANTE O DE SU REPRESENTANTE LEGAL.",
+    "RespuestaB": "B) FIRMA DE TODOS LOS MAYORES DE EDAD.",
+    "RespuestaC": "C) FIRMA SOLO DEL PROFESIONAL ACTUANTE.",
+    "Correcta": "A"
+  },
+  {
+    "_id": 4,
+    "Pregunta": "EL PROCESO ES:",
+    "RespuestaA": "A) UN MEDIO PACIFICO DE DEBATE DIALECTICO.",
+    "RespuestaB": "B) UN MEDIO DE ERRADICAR LA FUERZA ILEGÍTIMA DE UNA DETERMINADA SOCIEDAD.",
+    "RespuestaC": "C) AMBAS.",
+    "Correcta": "C"
+  }
+]
