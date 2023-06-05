@@ -9,45 +9,73 @@ async function getData() {
 async function main() {
   const data = await getData();
   const searchBar = document.querySelector("#searchBar");
-  searchBar.addEventListener("input", (event) => {
-    displayContent();
-  });
-  // Question filter
-  let filteredQuestions = data.filter((question) => {
-    return question.Pregunta.toLowerCase().includes(
-      searchBar.value.toLowerCase()
-    );
-  });
-
-  let cardGallery = "";
   const cardGalleryHTML = document.querySelector("#gallery");
 
-  filteredQuestions.forEach((question) => {
+  searchBar.addEventListener("input", (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    const filteredQuestions = data.filter((question) => {
+      return question.Pregunta.toLowerCase().includes(searchTerm);
+    });
+
+    let cardGallery = "";
+
+    filteredQuestions.forEach((question) => {
+      const cardTemplate = `
+          <!-- Card -->
+          <div class="card">
+              <h2>${question.Pregunta}</h2>
+              <ul class="options">
+                  <li class="option">
+                      <input type="radio" id="option1" name="answer" value="A">
+                      <label for="option1">${question.RespuestaA}</label>
+                  </li>
+                  <li class="option">
+                      <input type="radio" id="option2" name="answer" value="B">
+                      <label for="option2">${question.RespuestaB}</label>
+                  </li>
+                  <li class="option">
+                      <input type="radio" id="option3" name="answer" value="C">
+                      <label for="option3">${question.RespuestaC}</label>
+                  </li>
+              </ul>
+          </div>
+        `;
+
+      cardGallery += cardTemplate;
+    });
+
+    cardGalleryHTML.innerHTML = cardGallery;
+  });
+
+  // Initial display of all questions
+  let cardGallery = "";
+
+  data.forEach((question) => {
     const cardTemplate = `
-    <!-- Card -->
-    <div class="card">
-        <h2>${question.Pregunta}</h2>
-        <ul class="options">
-            <li class="option">
-                <input type="radio" id="option1" name="answer" value="A">
-                <label for="option1">${question.RespuestaA}</label>
-            </li>
-            <li class="option">
-                <input type="radio" id="option2" name="answer" value="B">
-                <label for="option2">${question.RespuestaB}</label>
-            </li>
-            <li class="option">
-                <input type="radio" id="option3" name="answer" value="C">
-                <label for="option3">${question.RespuestaC}</label>
-            </li>
-        </ul>
-    </div>
+        <!-- Card -->
+        <div class="card">
+            <h2>${question.Pregunta}</h2>
+            <ul class="options">
+                <li class="option">
+                    <input type="radio" id="option1" name="answer" value="A">
+                    <label for="option1">${question.RespuestaA}</label>
+                </li>
+                <li class="option">
+                    <input type="radio" id="option2" name="answer" value="B">
+                    <label for="option2">${question.RespuestaB}</label>
+                </li>
+                <li class="option">
+                    <input type="radio" id="option3" name="answer" value="C">
+                    <label for="option3">${question.RespuestaC}</label>
+                </li>
+            </ul>
+        </div>
       `;
 
     cardGallery += cardTemplate;
   });
 
-  cardGalleryHTML.innerHTML = cardGallery; 
+  cardGalleryHTML.innerHTML = cardGallery;
 }
 
 main();
