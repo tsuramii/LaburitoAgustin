@@ -45,15 +45,16 @@ body {
 }
 /* Card */
 .card {
-  flex: 1;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  min-width: 30rem;
-  max-width: 30rem;
-  margin: 1rem;
-}
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 100%;
+    max-width: 30rem;
+    margin: 1rem;
+    overflow: hidden; 
+  }
 
 h2 {
   font-size: 20px;
@@ -65,12 +66,14 @@ h2 {
 p {
   margin-top: 0;
   color: #666;
+  text-align: center;
 }
 
 .options {
   list-style-type: none;
   padding: 0;
   margin-top: 20px;
+  
 }
 
 .option {
@@ -96,3 +99,11 @@ label:hover {
 input[type="radio"] {
   display: none;
 }
+
+label:active .correct {
+  background-color: green;
+}
+
+label:active .incorrect {
+    background-color: red;
+  }

@@ -11,51 +11,16 @@ async function main() {
   const searchBar = document.querySelector("#searchBar");
   const cardGalleryHTML = document.querySelector("#gallery");
 
-  searchBar.addEventListener("input", (event) => {
-    const searchTerm = event.target.value.toLowerCase();
-    const filteredQuestions = data.filter((question) => {
-      return question.Pregunta.toLowerCase().includes(searchTerm);
-    });
-
+  function displayCards(filteredQuestions) {
     let cardGallery = "";
 
     filteredQuestions.forEach((question) => {
       const cardTemplate = `
-          <!-- Card -->
-          <div class="card">
-              <h2>${question.Pregunta}</h2>
-              <ul class="options">
-                  <li class="option">
-                      <input type="radio" id="option1" name="answer" value="A">
-                      <label for="option1">${question.RespuestaA}</label>
-                  </li>
-                  <li class="option">
-                      <input type="radio" id="option2" name="answer" value="B">
-                      <label for="option2">${question.RespuestaB}</label>
-                  </li>
-                  <li class="option">
-                      <input type="radio" id="option3" name="answer" value="C">
-                      <label for="option3">${question.RespuestaC}</label>
-                  </li>
-              </ul>
-          </div>
-        `;
-
-      cardGallery += cardTemplate;
-    });
-
-    cardGalleryHTML.innerHTML = cardGallery;
-  });
-
-  // Initial display of all questions
-  let cardGallery = "";
-
-  data.forEach((question) => {
-    const cardTemplate = `
-        <!-- Card -->
-        <div class="card">
+      <!-- Card -->
+      <div class="card">
+          <div class="card-content">
             <div class="question">
-            <h2>${question.Pregunta}</h2>
+              <h2>${question.Pregunta}</h2>
             </div>
             <ul class="options">
                 <li class="option">
@@ -70,14 +35,27 @@ async function main() {
                     <input type="radio" id="option3" name="answer" value="C">
                     <label for="option3">${question.RespuestaC}</label>
                 </li>
+                <p>La respuesta correcta es: ${question.Correcta}</p>
             </ul>
-        </div>
-      `;
+          </div>
+      </div>`;
 
-    cardGallery += cardTemplate;
+      cardGallery += cardTemplate;
+    });
+
+    cardGalleryHTML.innerHTML = cardGallery;
+  }
+
+  searchBar.addEventListener("input", (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    const filteredQuestions = data.filter((question) => {
+      return question.Pregunta.toLowerCase().includes(searchTerm);
+    });
+
+    displayCards(filteredQuestions);
   });
 
-  cardGalleryHTML.innerHTML = cardGallery;
+  displayCards(data);
 }
 
 main();
