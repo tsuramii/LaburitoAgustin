@@ -1,4 +1,3 @@
-/* JSON Data retriever*/
 async function getData() {
   const localDataPath = "./data.json";
   const localResponse = await fetch(localDataPath);
@@ -9,7 +8,46 @@ async function getData() {
 
 async function main() {
   const data = await getData();
-  // Event filter
-  const filteredEvents = [];
   const searchBar = document.querySelector("#searchBar");
+  searchBar.addEventListener("input", (event) => {
+    displayContent();
+  });
+  // Question filter
+  let filteredQuestions = data.filter((question) => {
+    return question.Pregunta.toLowerCase().includes(
+      searchBar.value.toLowerCase()
+    );
+  });
+
+  let cardGallery = "";
+  const cardGalleryHTML = document.querySelector("#gallery");
+
+  filteredQuestions.forEach((question) => {
+    const cardTemplate = `
+    <!-- Card -->
+    <div class="card">
+        <h2>${question.Pregunta}</h2>
+        <ul class="options">
+            <li class="option">
+                <input type="radio" id="option1" name="answer" value="A">
+                <label for="option1">${question.RespuestaA}</label>
+            </li>
+            <li class="option">
+                <input type="radio" id="option2" name="answer" value="B">
+                <label for="option2">${question.RespuestaB}</label>
+            </li>
+            <li class="option">
+                <input type="radio" id="option3" name="answer" value="C">
+                <label for="option3">${question.RespuestaC}</label>
+            </li>
+        </ul>
+    </div>
+      `;
+
+    cardGallery += cardTemplate;
+  });
+
+  cardGalleryHTML.innerHTML = cardGallery; 
 }
+
+main();
