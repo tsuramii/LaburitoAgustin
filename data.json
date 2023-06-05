@@ -9,7 +9,7 @@
   },
   {
     "_id": 2,
-    "Pregunta": "SON HORAS HABILES.",
+    "Pregunta": "SON HORAS HABILES:",
     "RespuestaA": "A) LAS QUE MEDIAN ENTRE LAS 8 Y LAS 14 HORAS.",
     "RespuestaB": "B) LAS QUE MEDIAN ENTRE LAS 7 Y LAS 21 HORAS.",
     "RespuestaC": "C) LAS QUE MEDIAN ENTRE LAS 15 Y LAS 24 HORAS.",
