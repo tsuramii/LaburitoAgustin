@@ -54,7 +54,9 @@ async function main() {
     const cardTemplate = `
         <!-- Card -->
         <div class="card">
+            <div class="question">
             <h2>${question.Pregunta}</h2>
+            </div>
             <ul class="options">
                 <li class="option">
                     <input type="radio" id="option1" name="answer" value="A">

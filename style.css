@@ -52,7 +52,6 @@ body {
   padding: 1rem;
   min-width: 30rem;
   max-width: 30rem;
-  min-height: 20rem;
   margin: 1rem;
 }
 
@@ -72,12 +71,12 @@ p {
   list-style-type: none;
   padding: 0;
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
 .option {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
 label {
